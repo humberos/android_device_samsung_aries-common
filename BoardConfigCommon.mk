@@ -113,7 +113,7 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # SkTextBox for libtvout
-BOARD_USES_SKTEXTBOX := true
+# BOARD_USES_SKTEXTBOX := true
 
 # Hardware rendering
 USE_OPENGL_RENDERER := true
@@ -151,7 +151,7 @@ BOARD_SEPOLICY_UNION += \
     tvoutserver.te \
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw/
+# BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw/
 
 # Include aries specific stuff
 -include device/samsung/aries-common/Android.mk

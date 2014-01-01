@@ -117,9 +117,9 @@ PRODUCT_PACKAGES += \
 
 # Device-specific packages
 PRODUCT_PACKAGES += \
-	SamsungServiceMode \
-	AriesParts \
-	tvouthack
+	SamsungServiceMode
+#	AriesParts \
+#	tvouthack
 
 # Charger
 PRODUCT_PACKAGES += \
