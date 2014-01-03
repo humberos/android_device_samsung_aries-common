@@ -55,7 +55,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/fstab.aries:root/fstab.aries \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/aries-common/ueventd.aries.rc:root/ueventd.aries.rc \
-	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh
+	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh \
+	device/samsung/aries-common/fstab.aries:recovery/root/etc/twrp.fstab
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
@@ -105,7 +106,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/libaudio/audio_policy.conf:system/etc/audio_policy.conf \
-        device/samsung/aries-common/libaudio/audio_effects.conf:system/vendor/etc/audio_effects.conf
+    device/samsung/aries-common/libaudio/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 # Libs
 PRODUCT_PACKAGES += \
@@ -146,11 +147,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=131072
 
-# For applications to determine if they should turn off specific memory-intensive
-# features that work poorly on low-memory devices.
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true
-
 # Support for Browser's saved page feature. This allows
 # for pages saved on previous versions of the OS to be
 # viewed on the current OS.
@@ -166,10 +162,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
        ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock \
        mobiledata.interfaces=pdp0,eth0,gprs,ppp0 \
        ro.vold.switchablepair=/mnt/emmc,/mnt/sdcard \
-       ro.bq.gpu_to_cpu_unsupported=1
-
-PRODUCT_PACKAGES += \
-    libnetcmdiface
+       ro.bq.gpu_to_cpu_unsupported=1 \
+       ro.config.low_ram=true \
+       ro.zram.default=18 \
 
 # SGX540 is slower with the scissor optimization enabled
 PRODUCT_PROPERTY_OVERRIDES += \

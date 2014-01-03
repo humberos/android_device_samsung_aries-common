@@ -1,11 +1,9 @@
 import usb.rc # Renamed init.aries.usb.rc, we can't use init*.rc because the build script will delete it
 
 on init
-    # legacy symlink
-    rmdir /external_sd
-    symlink /storage/sdcard1 /external_sd
+    export PATH /sbin
+    export LD_LIBRARY_PATH .:/sbin
 
-on init
     # legacy symlink
     rmdir /external_sd
     symlink /storage/sdcard1 /external_sd
